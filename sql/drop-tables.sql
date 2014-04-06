@@ -1,4 +1,4 @@
-DROP TABLE kortit;
+DROP TABLE kortit CASCADE;
 
 DROP TABLE ominaisuudet;
 

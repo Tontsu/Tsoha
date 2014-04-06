@@ -17,9 +17,25 @@
    <td> <?php echo $kortti->kesto; ?></td>
    <td></td>
    <td>
-    <?php if($_SESSION['admin'] == 'login') {?>
-    <form action="muokkaus.php"><input type="submit" value="Muokkaa"></form></td>
-    <td><button onclick="varmistus()">Poista</button></td>
+  <?php if($_SESSION['admin'] == 'login') {?>
+    	<form action="nakymat/muokkausnakyma.php" method="POST">
+	<input type="hidden" name="kohde" value="kortti">
+	<input type="hidden" name="toiminto" value="muokkaus">
+	<input type="hidden" name="kortti_id" value="<?php echo $kortti->id; ?>">
+	<input type="hidden" name="kortti_nimi" value="<?php echo $kortti->nimi; ?>">
+	<input type="hidden" name="kortti_mana" value="<?php echo $kortti->mana; ?>">
+	<input type="hidden" name="kortti_hyokkays" value="<?php echo $kortti->hyokkays; ?>">
+	<input type="hidden" name="kortti_kesto" value="<?php echo $kortti->kesto; ?>">
+	<input type="submit" value="Muokkaa">	
+	</form></td>
+    	<td>
+	<form action="../index.php" method="POST" class="poisto_form">
+	<input type="hidden" name="kortti_id" value="<?php echo $kortti->id; ?>">
+	<input type="hidden" name="kohde" value="kortti">
+	<input type="hidden" name="toiminto" value="poisto">
+	<button  class="poisto_painike" type="submit">Poista</button>
+	</form>
+	</td>
     <?php } ?>
    </tr>
 <?php } ?>
