@@ -9,7 +9,7 @@
 <form action="../index.php" method ="POST">
 	<label>Mana</label>
 	<input id ="mana" name="mana" type="number" min="0"/>
-	<label>Hyokkays</label>
+	<label>Hyökkäys</label>
 	<input id ="hyokkays" name="hyokkays" type="number" min="0"/>
 	<label>Kesto</label>
 	<input id ="kesto" name="kesto" type="number" min="0"/>
@@ -19,7 +19,7 @@
 	<input type="hidden" name ="toiminto" value="haku">
 	<button type="submit" name="hae"><span>Hae</span></button>
 </form>
-	<?php if($_SESSION['admin'] == 'login') {?>
+	<?php if(isset($_SESSION['admin'])) {?>
 		<form action="nakymat/lisaysnakyma.php"><input type="submit" value="Lisää"></form>
 	<?php } ?>
 </body>

@@ -10,3 +10,5 @@ INSERT INTO kortinOminaisuus (korttiId, ominaisuusId) VALUES (1, 1);
 INSERT INTO kortinOminaisuus (korttiId, ominaisuusId) VALUES (2, 1);
 INSERT INTO kortinOminaisuus (korttiId, ominaisuusId) VALUES (4, 2);
 INSERT INTO kortinOminaisuus (korttiId, ominaisuusId) VALUES (4, 3);
+INSERT INTO kayttajat (nimi, salasana) VALUES ('admin', 'admin');
+INSERT INTO kayttajat (nimi, salasana) VALUES ('trolli', 'trolli');

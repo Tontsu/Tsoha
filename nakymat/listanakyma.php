@@ -11,7 +11,7 @@
   	<script>
 	$(function() {
 		<?php foreach ($hakutulos as $kortit) { ?>
-		$( "#<?php echo $kortit->id; ?>" ).tooltip({ content: '<img src="../goldshire.gif" />' });
+		$( "#<?php echo $kortit->id; ?>" ).tooltip({ content: '<img src="../<?php echo $kortit->id;?>.gif" />' });
 		<?php }?>
   	});
   	</script>
@@ -32,7 +32,7 @@
    			<td> <?php echo $kortti->kesto; ?></td>
    			<td> <?php echo $kortti->ominaisuudet; ?></td>
    			<td>
-  			<?php if($_SESSION['admin'] == 'login') {?>
+  			<?php if(isset($_SESSION['admin'])) {?>
     			<form action="nakymat/muokkausnakyma.php" method="POST">
 				<input type="hidden" name="kohde" value="kortti">
 				<input type="hidden" name="toiminto" value="muokkaus">

@@ -7,12 +7,12 @@ if (isset($_SESSION['admin'])) {?>
 	<title>Eeppisen korttikannan eeppinen lisäyssivu</title>
 </head>
 <body>
-  	<form action="../index.php">
+  	<form action="../index.php" method="POST" class="lisays_form">
 		<label>Nimi</label>
 		<input type="text" name="lisaanimi">
 		<label>Mana</label>
 		<input type="number" name="lisaamana" min="0">
-		<label>Hyokkays</label>
+		<label>Hyökkäys</label>
 		<input type="number" name="lisaahyokkays" min="0">
 		<label>Kesto</label>
 		<input type="number" name="lisaakesto" min="0">

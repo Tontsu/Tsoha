@@ -1,18 +1,43 @@
 <?php session_start();
 
- class Kirjautumismalli {
+/**
+* Malli, joka tarkistaa kirjautumistiedot tietokannasta.
+**/
 
-  public function getlogin() { 
+ class Kirjautumismalli {
+  /**
+  * Funktio tarkistaa tietokannasta nimen ja salasanan, mikäli semoiset on syötetty kenttiin.
+´ * Funktio palauttaa hyväksyttävän kirjautumisen, mikäli tiedot löytyvät kannasta. Muuten estää kirjautumisen.
+  **/
+
+  public function haeKirjautumisenTila() { 
 
    if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
-	if($_REQUEST['username']=='admin' && $_REQUEST['password'] =='admin') {
-		return 'login';
+	$kayttajat = $this->haeKayttajatKannasta();
+	foreach ($kayttajat as $kayttaja) {
+		if($_REQUEST['username']== $kayttaja->nimi && $_REQUEST['password'] == $kayttaja->salasana) {
+			return 'kirjauduttu';
+		}
 	}
-	else {
-		return 'invaliidi useri';
-	}
+	return 'estetty';
    }
  }
+ private function haeKayttajatKannasta() {
+	$sql = "SELECT * FROM kayttajat";
+	$tulos = $this->tietokantakysely($sql);
+	return $tulos;
+ }
+
+ private function tietokantakysely($sql, $parametrit) {
+ 	include_once 'libs/tietokantayhteys.php';
+        $kysely = getTietokantayhteys()->prepare($sql);
+        $kysely->execute();
+        $tulos = $kysely->fetchAll(PDO::FETCH_OBJ);
+        return $tulos;
+        }
+
+
+
 }
 
 ?>

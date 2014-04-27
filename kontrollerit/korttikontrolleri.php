@@ -1,4 +1,8 @@
 <?php
+/**
+ * Kontrolleri, joka lähettää korttimallille tietoja.
+ **/
+
 class Korttikontrolleri {
 	private $malli;
 
@@ -15,9 +19,11 @@ class Korttikontrolleri {
 	}
 	public function lisaa() {
 		if($_REQUEST['lisaaominaisuus'] != null) {
-                        $this->malli->lisaaOminaisuus(htmlspecialchars($_REQUEST['lisaaominaisuus']));
+			$this->malli->lisaaOminaisuus(htmlspecialchars($_REQUEST['lisaaominaisuus']));
                 }
-		$this->malli->lisaaKortti(htmlspecialchars($_REQUEST['lisaanimi']), $_REQUEST['lisaamana'], $_REQUEST['lisaakesto'], $_REQUEST['lisaahyokkays'], htmlspecialchars($_REQUEST['liitaominaisuus']));
+		if($_REQUEST['lisaanimi'] != null) {
+			$this->malli->lisaaKortti(htmlspecialchars($_REQUEST['lisaanimi']), $_REQUEST['lisaamana'], $_REQUEST['lisaahyokkays'], $_REQUEST['lisaakesto'], htmlspecialchars($_REQUEST['liitaominaisuus']));
+		}
 	}
 	public function muokkaa() {
 		$this->malli->muokkaaKorttia($_REQUEST['muokkausid'], $_REQUEST['muokkaamana'], $_REQUEST['muokkaahyokkays'], $_REQUEST['muokkaakesto'], htmlspecialchars($_REQUEST['muokkaaominaisuus']));
