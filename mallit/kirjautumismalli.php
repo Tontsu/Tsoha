@@ -6,7 +6,7 @@
 
  class Kirjautumismalli {
   /**
-  * Funktio tarkistaa tietokannasta nimen ja salasanan, mikäli semoiset on syötetty kenttiin.
+  * Funktio tarkistaa tietokannasta nimen ja salasanan, mikäli ne on syötetty kenttiin.
 ´ * Funktio palauttaa hyväksyttävän kirjautumisen, mikäli tiedot löytyvät kannasta. Muuten estää kirjautumisen.
   **/
 
